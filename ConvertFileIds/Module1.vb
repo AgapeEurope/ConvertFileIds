@@ -30,10 +30,10 @@
                             row.ImageId = q_new.FileId
 
                         Else
-                            Console.WriteLine("Could not locate FileId " & row.PhotoId & " in new system")
+                            Console.WriteLine("Could not locate FileId " & row.ImageId & " in new system")
                         End If
                     Else
-                        Console.WriteLine("Could not locate FileId " & row.PhotoId & " in old system")
+                        Console.WriteLine("Could not locate FileId " & row.ImageId & " in old system")
                     End If
                 Next
                 d_new.SubmitChanges()

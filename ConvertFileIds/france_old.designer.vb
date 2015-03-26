@@ -31,11 +31,11 @@ Partial Public Class france_oldDataContext
   #Region "Extensibility Method Definitions"
   Partial Private Sub OnCreated()
   End Sub
-  Partial Private Sub InsertFile(instance As File)
+    Partial Private Sub InsertFile(instance As france_old.File)
     End Sub
-  Partial Private Sub UpdateFile(instance As File)
+    Partial Private Sub UpdateFile(instance As france_old.File)
     End Sub
-  Partial Private Sub DeleteFile(instance As File)
+    Partial Private Sub DeleteFile(instance As france_old.File)
     End Sub
   #End Region
 	
@@ -64,69 +64,71 @@ Partial Public Class france_oldDataContext
 		OnCreated
 	End Sub
 	
-	Public ReadOnly Property Files() As System.Data.Linq.Table(Of File)
+	Public ReadOnly Property Files() As System.Data.Linq.Table(Of france_old.File)
 		Get
-			Return Me.GetTable(Of File)
+			Return Me.GetTable(Of france_old.File)
 		End Get
 	End Property
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Files")>  _
-Partial Public Class File
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+Namespace france_old
 	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _FileId As Integer
-	
-	Private _PortalId As System.Nullable(Of Integer)
-	
-	Private _FileName As String
-	
-	Private _Extension As String
-	
-	Private _Size As Integer
-	
-	Private _Width As System.Nullable(Of Integer)
-	
-	Private _Height As System.Nullable(Of Integer)
-	
-	Private _ContentType As String
-	
-	Private _FolderID As Integer
-	
-	Private _Content As System.Data.Linq.Binary
-	
-	Private _CreatedByUserID As System.Nullable(Of Integer)
-	
-	Private _CreatedOnDate As System.Nullable(Of Date)
-	
-	Private _LastModifiedByUserID As System.Nullable(Of Integer)
-	
-	Private _LastModifiedOnDate As System.Nullable(Of Date)
-	
-	Private _UniqueId As System.Guid
-	
-	Private _VersionGuid As System.Guid
-	
-	Private _SHA1Hash As String
-	
-	Private _LastModificationTime As Date
-	
-	Private _Folder As String
-	
-	Private _Title As String
-	
-	Private _StartDate As Date
-	
-	Private _EnablePublishPeriod As Boolean
-	
-	Private _EndDate As System.Nullable(Of Date)
-	
-	Private _PublishedVersion As Integer
-	
-	Private _ContentItemID As System.Nullable(Of Integer)
-	
+	<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Files")>  _
+	Partial Public Class File
+		Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+		
+		Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+		
+		Private _FileId As Integer
+		
+		Private _PortalId As System.Nullable(Of Integer)
+		
+		Private _FileName As String
+		
+		Private _Extension As String
+		
+		Private _Size As Integer
+		
+		Private _Width As System.Nullable(Of Integer)
+		
+		Private _Height As System.Nullable(Of Integer)
+		
+		Private _ContentType As String
+		
+		Private _FolderID As Integer
+		
+		Private _Content As System.Data.Linq.Binary
+		
+		Private _CreatedByUserID As System.Nullable(Of Integer)
+		
+		Private _CreatedOnDate As System.Nullable(Of Date)
+		
+		Private _LastModifiedByUserID As System.Nullable(Of Integer)
+		
+		Private _LastModifiedOnDate As System.Nullable(Of Date)
+		
+		Private _UniqueId As System.Guid
+		
+		Private _VersionGuid As System.Guid
+		
+		Private _SHA1Hash As String
+		
+		Private _LastModificationTime As Date
+		
+		Private _Folder As String
+		
+		Private _Title As String
+		
+		Private _StartDate As Date
+		
+		Private _EnablePublishPeriod As Boolean
+		
+		Private _EndDate As System.Nullable(Of Date)
+		
+		Private _PublishedVersion As Integer
+		
+		Private _ContentItemID As System.Nullable(Of Integer)
+		
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
     End Sub
@@ -235,436 +237,437 @@ Partial Public Class File
     Partial Private Sub OnContentItemIDChanged()
     End Sub
     #End Region
-	
-	Public Sub New()
-		MyBase.New
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FileId", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
-	Public Property FileId() As Integer
-		Get
-			Return Me._FileId
-		End Get
-		Set
-			If ((Me._FileId = value)  _
+		
+		Public Sub New()
+			MyBase.New
+			OnCreated
+		End Sub
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FileId", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
+		Public Property FileId() As Integer
+			Get
+				Return Me._FileId
+			End Get
+			Set
+				If ((Me._FileId = value)  _
+							= false) Then
+					Me.OnFileIdChanging(value)
+					Me.SendPropertyChanging
+					Me._FileId = value
+					Me.SendPropertyChanged("FileId")
+					Me.OnFileIdChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PortalId", DbType:="Int")>  _
+		Public Property PortalId() As System.Nullable(Of Integer)
+			Get
+				Return Me._PortalId
+			End Get
+			Set
+				If (Me._PortalId.Equals(value) = false) Then
+					Me.OnPortalIdChanging(value)
+					Me.SendPropertyChanging
+					Me._PortalId = value
+					Me.SendPropertyChanged("PortalId")
+					Me.OnPortalIdChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FileName", DbType:="NVarChar(246) NOT NULL", CanBeNull:=false)>  _
+		Public Property FileName() As String
+			Get
+				Return Me._FileName
+			End Get
+			Set
+				If (String.Equals(Me._FileName, value) = false) Then
+					Me.OnFileNameChanging(value)
+					Me.SendPropertyChanging
+					Me._FileName = value
+					Me.SendPropertyChanged("FileName")
+					Me.OnFileNameChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Extension", DbType:="NVarChar(100) NOT NULL", CanBeNull:=false)>  _
+		Public Property Extension() As String
+			Get
+				Return Me._Extension
+			End Get
+			Set
+				If (String.Equals(Me._Extension, value) = false) Then
+					Me.OnExtensionChanging(value)
+					Me.SendPropertyChanging
+					Me._Extension = value
+					Me.SendPropertyChanged("Extension")
+					Me.OnExtensionChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Size", DbType:="Int NOT NULL")>  _
+		Public Property Size() As Integer
+			Get
+				Return Me._Size
+			End Get
+			Set
+				If ((Me._Size = value)  _
+							= false) Then
+					Me.OnSizeChanging(value)
+					Me.SendPropertyChanging
+					Me._Size = value
+					Me.SendPropertyChanged("Size")
+					Me.OnSizeChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Width", DbType:="Int")>  _
+		Public Property Width() As System.Nullable(Of Integer)
+			Get
+				Return Me._Width
+			End Get
+			Set
+				If (Me._Width.Equals(value) = false) Then
+					Me.OnWidthChanging(value)
+					Me.SendPropertyChanging
+					Me._Width = value
+					Me.SendPropertyChanged("Width")
+					Me.OnWidthChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Height", DbType:="Int")>  _
+		Public Property Height() As System.Nullable(Of Integer)
+			Get
+				Return Me._Height
+			End Get
+			Set
+				If (Me._Height.Equals(value) = false) Then
+					Me.OnHeightChanging(value)
+					Me.SendPropertyChanging
+					Me._Height = value
+					Me.SendPropertyChanged("Height")
+					Me.OnHeightChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ContentType", DbType:="NVarChar(200) NOT NULL", CanBeNull:=false)>  _
+		Public Property ContentType() As String
+			Get
+				Return Me._ContentType
+			End Get
+			Set
+				If (String.Equals(Me._ContentType, value) = false) Then
+					Me.OnContentTypeChanging(value)
+					Me.SendPropertyChanging
+					Me._ContentType = value
+					Me.SendPropertyChanged("ContentType")
+					Me.OnContentTypeChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FolderID", DbType:="Int NOT NULL")>  _
+		Public Property FolderID() As Integer
+			Get
+				Return Me._FolderID
+			End Get
+			Set
+				If ((Me._FolderID = value)  _
+							= false) Then
+					Me.OnFolderIDChanging(value)
+					Me.SendPropertyChanging
+					Me._FolderID = value
+					Me.SendPropertyChanged("FolderID")
+					Me.OnFolderIDChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Content", DbType:="Image", CanBeNull:=true, UpdateCheck:=UpdateCheck.Never)>  _
+		Public Property Content() As System.Data.Linq.Binary
+			Get
+				Return Me._Content
+			End Get
+			Set
+				If (Object.Equals(Me._Content, value) = false) Then
+					Me.OnContentChanging(value)
+					Me.SendPropertyChanging
+					Me._Content = value
+					Me.SendPropertyChanged("Content")
+					Me.OnContentChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CreatedByUserID", DbType:="Int")>  _
+		Public Property CreatedByUserID() As System.Nullable(Of Integer)
+			Get
+				Return Me._CreatedByUserID
+			End Get
+			Set
+				If (Me._CreatedByUserID.Equals(value) = false) Then
+					Me.OnCreatedByUserIDChanging(value)
+					Me.SendPropertyChanging
+					Me._CreatedByUserID = value
+					Me.SendPropertyChanged("CreatedByUserID")
+					Me.OnCreatedByUserIDChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CreatedOnDate", DbType:="DateTime")>  _
+		Public Property CreatedOnDate() As System.Nullable(Of Date)
+			Get
+				Return Me._CreatedOnDate
+			End Get
+			Set
+				If (Me._CreatedOnDate.Equals(value) = false) Then
+					Me.OnCreatedOnDateChanging(value)
+					Me.SendPropertyChanging
+					Me._CreatedOnDate = value
+					Me.SendPropertyChanged("CreatedOnDate")
+					Me.OnCreatedOnDateChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_LastModifiedByUserID", DbType:="Int")>  _
+		Public Property LastModifiedByUserID() As System.Nullable(Of Integer)
+			Get
+				Return Me._LastModifiedByUserID
+			End Get
+			Set
+				If (Me._LastModifiedByUserID.Equals(value) = false) Then
+					Me.OnLastModifiedByUserIDChanging(value)
+					Me.SendPropertyChanging
+					Me._LastModifiedByUserID = value
+					Me.SendPropertyChanged("LastModifiedByUserID")
+					Me.OnLastModifiedByUserIDChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_LastModifiedOnDate", DbType:="DateTime")>  _
+		Public Property LastModifiedOnDate() As System.Nullable(Of Date)
+			Get
+				Return Me._LastModifiedOnDate
+			End Get
+			Set
+				If (Me._LastModifiedOnDate.Equals(value) = false) Then
+					Me.OnLastModifiedOnDateChanging(value)
+					Me.SendPropertyChanging
+					Me._LastModifiedOnDate = value
+					Me.SendPropertyChanged("LastModifiedOnDate")
+					Me.OnLastModifiedOnDateChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UniqueId", DbType:="UniqueIdentifier NOT NULL")>  _
+		Public Property UniqueId() As System.Guid
+			Get
+				Return Me._UniqueId
+			End Get
+			Set
+				If ((Me._UniqueId = value)  _
+							= false) Then
+					Me.OnUniqueIdChanging(value)
+					Me.SendPropertyChanging
+					Me._UniqueId = value
+					Me.SendPropertyChanged("UniqueId")
+					Me.OnUniqueIdChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_VersionGuid", DbType:="UniqueIdentifier NOT NULL")>  _
+		Public Property VersionGuid() As System.Guid
+			Get
+				Return Me._VersionGuid
+			End Get
+			Set
+				If ((Me._VersionGuid = value)  _
+							= false) Then
+					Me.OnVersionGuidChanging(value)
+					Me.SendPropertyChanging
+					Me._VersionGuid = value
+					Me.SendPropertyChanged("VersionGuid")
+					Me.OnVersionGuidChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SHA1Hash", DbType:="VarChar(40)")>  _
+		Public Property SHA1Hash() As String
+			Get
+				Return Me._SHA1Hash
+			End Get
+			Set
+				If (String.Equals(Me._SHA1Hash, value) = false) Then
+					Me.OnSHA1HashChanging(value)
+					Me.SendPropertyChanging
+					Me._SHA1Hash = value
+					Me.SendPropertyChanged("SHA1Hash")
+					Me.OnSHA1HashChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_LastModificationTime", DbType:="DateTime NOT NULL")>  _
+		Public Property LastModificationTime() As Date
+			Get
+				Return Me._LastModificationTime
+			End Get
+			Set
+				If ((Me._LastModificationTime = value)  _
+							= false) Then
+					Me.OnLastModificationTimeChanging(value)
+					Me.SendPropertyChanging
+					Me._LastModificationTime = value
+					Me.SendPropertyChanged("LastModificationTime")
+					Me.OnLastModificationTimeChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Folder", AutoSync:=AutoSync.Always, DbType:="NVarChar(246)", IsDbGenerated:=true, UpdateCheck:=UpdateCheck.Never)>  _
+		Public Property Folder() As String
+			Get
+				Return Me._Folder
+			End Get
+			Set
+				If (String.Equals(Me._Folder, value) = false) Then
+					Me.OnFolderChanging(value)
+					Me.SendPropertyChanging
+					Me._Folder = value
+					Me.SendPropertyChanged("Folder")
+					Me.OnFolderChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Title", DbType:="NVarChar(256)")>  _
+		Public Property Title() As String
+			Get
+				Return Me._Title
+			End Get
+			Set
+				If (String.Equals(Me._Title, value) = false) Then
+					Me.OnTitleChanging(value)
+					Me.SendPropertyChanging
+					Me._Title = value
+					Me.SendPropertyChanged("Title")
+					Me.OnTitleChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_StartDate", DbType:="Date NOT NULL")>  _
+		Public Property StartDate() As Date
+			Get
+				Return Me._StartDate
+			End Get
+			Set
+				If ((Me._StartDate = value)  _
+							= false) Then
+					Me.OnStartDateChanging(value)
+					Me.SendPropertyChanging
+					Me._StartDate = value
+					Me.SendPropertyChanged("StartDate")
+					Me.OnStartDateChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_EnablePublishPeriod", DbType:="Bit NOT NULL")>  _
+		Public Property EnablePublishPeriod() As Boolean
+			Get
+				Return Me._EnablePublishPeriod
+			End Get
+			Set
+				If ((Me._EnablePublishPeriod = value)  _
+							= false) Then
+					Me.OnEnablePublishPeriodChanging(value)
+					Me.SendPropertyChanging
+					Me._EnablePublishPeriod = value
+					Me.SendPropertyChanged("EnablePublishPeriod")
+					Me.OnEnablePublishPeriodChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_EndDate", DbType:="Date")>  _
+		Public Property EndDate() As System.Nullable(Of Date)
+			Get
+				Return Me._EndDate
+			End Get
+			Set
+				If (Me._EndDate.Equals(value) = false) Then
+					Me.OnEndDateChanging(value)
+					Me.SendPropertyChanging
+					Me._EndDate = value
+					Me.SendPropertyChanged("EndDate")
+					Me.OnEndDateChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PublishedVersion", DbType:="Int NOT NULL")>  _
+		Public Property PublishedVersion() As Integer
+			Get
+				Return Me._PublishedVersion
+			End Get
+			Set
+				If ((Me._PublishedVersion = value)  _
+							= false) Then
+					Me.OnPublishedVersionChanging(value)
+					Me.SendPropertyChanging
+					Me._PublishedVersion = value
+					Me.SendPropertyChanged("PublishedVersion")
+					Me.OnPublishedVersionChanged
+				End If
+			End Set
+		End Property
+		
+		<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ContentItemID", DbType:="Int")>  _
+		Public Property ContentItemID() As System.Nullable(Of Integer)
+			Get
+				Return Me._ContentItemID
+			End Get
+			Set
+				If (Me._ContentItemID.Equals(value) = false) Then
+					Me.OnContentItemIDChanging(value)
+					Me.SendPropertyChanging
+					Me._ContentItemID = value
+					Me.SendPropertyChanged("ContentItemID")
+					Me.OnContentItemIDChanged
+				End If
+			End Set
+		End Property
+		
+		Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+		
+		Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+		
+		Protected Overridable Sub SendPropertyChanging()
+			If ((Me.PropertyChangingEvent Is Nothing)  _
 						= false) Then
-				Me.OnFileIdChanging(value)
-				Me.SendPropertyChanging
-				Me._FileId = value
-				Me.SendPropertyChanged("FileId")
-				Me.OnFileIdChanged
+				RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
 			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PortalId", DbType:="Int")>  _
-	Public Property PortalId() As System.Nullable(Of Integer)
-		Get
-			Return Me._PortalId
-		End Get
-		Set
-			If (Me._PortalId.Equals(value) = false) Then
-				Me.OnPortalIdChanging(value)
-				Me.SendPropertyChanging
-				Me._PortalId = value
-				Me.SendPropertyChanged("PortalId")
-				Me.OnPortalIdChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FileName", DbType:="NVarChar(246) NOT NULL", CanBeNull:=false)>  _
-	Public Property FileName() As String
-		Get
-			Return Me._FileName
-		End Get
-		Set
-			If (String.Equals(Me._FileName, value) = false) Then
-				Me.OnFileNameChanging(value)
-				Me.SendPropertyChanging
-				Me._FileName = value
-				Me.SendPropertyChanged("FileName")
-				Me.OnFileNameChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Extension", DbType:="NVarChar(100) NOT NULL", CanBeNull:=false)>  _
-	Public Property Extension() As String
-		Get
-			Return Me._Extension
-		End Get
-		Set
-			If (String.Equals(Me._Extension, value) = false) Then
-				Me.OnExtensionChanging(value)
-				Me.SendPropertyChanging
-				Me._Extension = value
-				Me.SendPropertyChanged("Extension")
-				Me.OnExtensionChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Size", DbType:="Int NOT NULL")>  _
-	Public Property Size() As Integer
-		Get
-			Return Me._Size
-		End Get
-		Set
-			If ((Me._Size = value)  _
+		End Sub
+		
+		Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+			If ((Me.PropertyChangedEvent Is Nothing)  _
 						= false) Then
-				Me.OnSizeChanging(value)
-				Me.SendPropertyChanging
-				Me._Size = value
-				Me.SendPropertyChanged("Size")
-				Me.OnSizeChanged
+				RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
 			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Width", DbType:="Int")>  _
-	Public Property Width() As System.Nullable(Of Integer)
-		Get
-			Return Me._Width
-		End Get
-		Set
-			If (Me._Width.Equals(value) = false) Then
-				Me.OnWidthChanging(value)
-				Me.SendPropertyChanging
-				Me._Width = value
-				Me.SendPropertyChanged("Width")
-				Me.OnWidthChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Height", DbType:="Int")>  _
-	Public Property Height() As System.Nullable(Of Integer)
-		Get
-			Return Me._Height
-		End Get
-		Set
-			If (Me._Height.Equals(value) = false) Then
-				Me.OnHeightChanging(value)
-				Me.SendPropertyChanging
-				Me._Height = value
-				Me.SendPropertyChanged("Height")
-				Me.OnHeightChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ContentType", DbType:="NVarChar(200) NOT NULL", CanBeNull:=false)>  _
-	Public Property ContentType() As String
-		Get
-			Return Me._ContentType
-		End Get
-		Set
-			If (String.Equals(Me._ContentType, value) = false) Then
-				Me.OnContentTypeChanging(value)
-				Me.SendPropertyChanging
-				Me._ContentType = value
-				Me.SendPropertyChanged("ContentType")
-				Me.OnContentTypeChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FolderID", DbType:="Int NOT NULL")>  _
-	Public Property FolderID() As Integer
-		Get
-			Return Me._FolderID
-		End Get
-		Set
-			If ((Me._FolderID = value)  _
-						= false) Then
-				Me.OnFolderIDChanging(value)
-				Me.SendPropertyChanging
-				Me._FolderID = value
-				Me.SendPropertyChanged("FolderID")
-				Me.OnFolderIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Content", DbType:="Image", CanBeNull:=true, UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property Content() As System.Data.Linq.Binary
-		Get
-			Return Me._Content
-		End Get
-		Set
-			If (Object.Equals(Me._Content, value) = false) Then
-				Me.OnContentChanging(value)
-				Me.SendPropertyChanging
-				Me._Content = value
-				Me.SendPropertyChanged("Content")
-				Me.OnContentChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CreatedByUserID", DbType:="Int")>  _
-	Public Property CreatedByUserID() As System.Nullable(Of Integer)
-		Get
-			Return Me._CreatedByUserID
-		End Get
-		Set
-			If (Me._CreatedByUserID.Equals(value) = false) Then
-				Me.OnCreatedByUserIDChanging(value)
-				Me.SendPropertyChanging
-				Me._CreatedByUserID = value
-				Me.SendPropertyChanged("CreatedByUserID")
-				Me.OnCreatedByUserIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CreatedOnDate", DbType:="DateTime")>  _
-	Public Property CreatedOnDate() As System.Nullable(Of Date)
-		Get
-			Return Me._CreatedOnDate
-		End Get
-		Set
-			If (Me._CreatedOnDate.Equals(value) = false) Then
-				Me.OnCreatedOnDateChanging(value)
-				Me.SendPropertyChanging
-				Me._CreatedOnDate = value
-				Me.SendPropertyChanged("CreatedOnDate")
-				Me.OnCreatedOnDateChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_LastModifiedByUserID", DbType:="Int")>  _
-	Public Property LastModifiedByUserID() As System.Nullable(Of Integer)
-		Get
-			Return Me._LastModifiedByUserID
-		End Get
-		Set
-			If (Me._LastModifiedByUserID.Equals(value) = false) Then
-				Me.OnLastModifiedByUserIDChanging(value)
-				Me.SendPropertyChanging
-				Me._LastModifiedByUserID = value
-				Me.SendPropertyChanged("LastModifiedByUserID")
-				Me.OnLastModifiedByUserIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_LastModifiedOnDate", DbType:="DateTime")>  _
-	Public Property LastModifiedOnDate() As System.Nullable(Of Date)
-		Get
-			Return Me._LastModifiedOnDate
-		End Get
-		Set
-			If (Me._LastModifiedOnDate.Equals(value) = false) Then
-				Me.OnLastModifiedOnDateChanging(value)
-				Me.SendPropertyChanging
-				Me._LastModifiedOnDate = value
-				Me.SendPropertyChanged("LastModifiedOnDate")
-				Me.OnLastModifiedOnDateChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UniqueId", DbType:="UniqueIdentifier NOT NULL")>  _
-	Public Property UniqueId() As System.Guid
-		Get
-			Return Me._UniqueId
-		End Get
-		Set
-			If ((Me._UniqueId = value)  _
-						= false) Then
-				Me.OnUniqueIdChanging(value)
-				Me.SendPropertyChanging
-				Me._UniqueId = value
-				Me.SendPropertyChanged("UniqueId")
-				Me.OnUniqueIdChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_VersionGuid", DbType:="UniqueIdentifier NOT NULL")>  _
-	Public Property VersionGuid() As System.Guid
-		Get
-			Return Me._VersionGuid
-		End Get
-		Set
-			If ((Me._VersionGuid = value)  _
-						= false) Then
-				Me.OnVersionGuidChanging(value)
-				Me.SendPropertyChanging
-				Me._VersionGuid = value
-				Me.SendPropertyChanged("VersionGuid")
-				Me.OnVersionGuidChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SHA1Hash", DbType:="VarChar(40)")>  _
-	Public Property SHA1Hash() As String
-		Get
-			Return Me._SHA1Hash
-		End Get
-		Set
-			If (String.Equals(Me._SHA1Hash, value) = false) Then
-				Me.OnSHA1HashChanging(value)
-				Me.SendPropertyChanging
-				Me._SHA1Hash = value
-				Me.SendPropertyChanged("SHA1Hash")
-				Me.OnSHA1HashChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_LastModificationTime", DbType:="DateTime NOT NULL")>  _
-	Public Property LastModificationTime() As Date
-		Get
-			Return Me._LastModificationTime
-		End Get
-		Set
-			If ((Me._LastModificationTime = value)  _
-						= false) Then
-				Me.OnLastModificationTimeChanging(value)
-				Me.SendPropertyChanging
-				Me._LastModificationTime = value
-				Me.SendPropertyChanged("LastModificationTime")
-				Me.OnLastModificationTimeChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Folder", AutoSync:=AutoSync.Always, DbType:="NVarChar(246)", IsDbGenerated:=true, UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property Folder() As String
-		Get
-			Return Me._Folder
-		End Get
-		Set
-			If (String.Equals(Me._Folder, value) = false) Then
-				Me.OnFolderChanging(value)
-				Me.SendPropertyChanging
-				Me._Folder = value
-				Me.SendPropertyChanged("Folder")
-				Me.OnFolderChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Title", DbType:="NVarChar(256)")>  _
-	Public Property Title() As String
-		Get
-			Return Me._Title
-		End Get
-		Set
-			If (String.Equals(Me._Title, value) = false) Then
-				Me.OnTitleChanging(value)
-				Me.SendPropertyChanging
-				Me._Title = value
-				Me.SendPropertyChanged("Title")
-				Me.OnTitleChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_StartDate", DbType:="Date NOT NULL")>  _
-	Public Property StartDate() As Date
-		Get
-			Return Me._StartDate
-		End Get
-		Set
-			If ((Me._StartDate = value)  _
-						= false) Then
-				Me.OnStartDateChanging(value)
-				Me.SendPropertyChanging
-				Me._StartDate = value
-				Me.SendPropertyChanged("StartDate")
-				Me.OnStartDateChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_EnablePublishPeriod", DbType:="Bit NOT NULL")>  _
-	Public Property EnablePublishPeriod() As Boolean
-		Get
-			Return Me._EnablePublishPeriod
-		End Get
-		Set
-			If ((Me._EnablePublishPeriod = value)  _
-						= false) Then
-				Me.OnEnablePublishPeriodChanging(value)
-				Me.SendPropertyChanging
-				Me._EnablePublishPeriod = value
-				Me.SendPropertyChanged("EnablePublishPeriod")
-				Me.OnEnablePublishPeriodChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_EndDate", DbType:="Date")>  _
-	Public Property EndDate() As System.Nullable(Of Date)
-		Get
-			Return Me._EndDate
-		End Get
-		Set
-			If (Me._EndDate.Equals(value) = false) Then
-				Me.OnEndDateChanging(value)
-				Me.SendPropertyChanging
-				Me._EndDate = value
-				Me.SendPropertyChanged("EndDate")
-				Me.OnEndDateChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PublishedVersion", DbType:="Int NOT NULL")>  _
-	Public Property PublishedVersion() As Integer
-		Get
-			Return Me._PublishedVersion
-		End Get
-		Set
-			If ((Me._PublishedVersion = value)  _
-						= false) Then
-				Me.OnPublishedVersionChanging(value)
-				Me.SendPropertyChanging
-				Me._PublishedVersion = value
-				Me.SendPropertyChanged("PublishedVersion")
-				Me.OnPublishedVersionChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ContentItemID", DbType:="Int")>  _
-	Public Property ContentItemID() As System.Nullable(Of Integer)
-		Get
-			Return Me._ContentItemID
-		End Get
-		Set
-			If (Me._ContentItemID.Equals(value) = false) Then
-				Me.OnContentItemIDChanging(value)
-				Me.SendPropertyChanging
-				Me._ContentItemID = value
-				Me.SendPropertyChanged("ContentItemID")
-				Me.OnContentItemIDChanged
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
+		End Sub
+	End Class
+End Namespace

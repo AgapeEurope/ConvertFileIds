@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="oib" Class="france_oldDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="oib" EntityNamespace="france_old" Class="france_oldDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=WIN-UN1L241MDMF\SQLEXPRESS;Initial Catalog=oib;Integrated Security=True" SettingsObjectName="ConvertFileIds.My.MySettings" SettingsPropertyName="oibConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Files" Member="Files">
     <Type Name="File">

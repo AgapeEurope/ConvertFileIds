@@ -1,1 +1,9 @@
 C:\aGit\ConvertFileIds\ConvertFileIds\bin\Debug\ConvertFileIds.exe.config
+C:\aGit\ConvertFileIds\ConvertFileIds\obj\Debug\ConvertFileIds.Resources.resources
+C:\aGit\ConvertFileIds\ConvertFileIds\obj\Debug\ConvertFileIds.vbproj.GenerateResource.Cache
+C:\aGit\ConvertFileIds\ConvertFileIds\bin\Debug\ConvertFileIds.exe
+C:\aGit\ConvertFileIds\ConvertFileIds\bin\Debug\ConvertFileIds.pdb
+C:\aGit\ConvertFileIds\ConvertFileIds\bin\Debug\ConvertFileIds.xml
+C:\aGit\ConvertFileIds\ConvertFileIds\obj\Debug\ConvertFileIds.exe
+C:\aGit\ConvertFileIds\ConvertFileIds\obj\Debug\ConvertFileIds.xml
+C:\aGit\ConvertFileIds\ConvertFileIds\obj\Debug\ConvertFileIds.pdb
