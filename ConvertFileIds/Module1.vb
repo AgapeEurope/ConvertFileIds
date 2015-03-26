@@ -12,8 +12,11 @@
                         If Not q_new Is Nothing Then
                             Console.WriteLine(row.PhotoId & " -> " & q_new.FileId)
                             row.PhotoId = q_new.FileId
-
+                        Else
+                            Console.WriteLine("Could not locate FileId " & row.PhotoId & " in new system")
                         End If
+                    Else
+                        Console.WriteLine("Could not locate FileId " & row.PhotoId & " in old system")
                     End If
                 Next
                 d_new.SubmitChanges()
@@ -26,7 +29,11 @@
                             Console.WriteLine(row.ImageId & " -> " & q_new.FileId)
                             row.ImageId = q_new.FileId
 
+                        Else
+                            Console.WriteLine("Could not locate FileId " & row.PhotoId & " in new system")
                         End If
+                    Else
+                        Console.WriteLine("Could not locate FileId " & row.PhotoId & " in old system")
                     End If
                 Next
                 d_new.SubmitChanges()
