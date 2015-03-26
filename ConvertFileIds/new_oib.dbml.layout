@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 16.75, 10.625" name="new_oib">
+  <DataContextMoniker Name="/new_oibDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1b507100-0045-4b68-95d7-92ed31cd8f6c" absoluteBounds="8, 3.5, 2, 5.8092268880208326">
+      <DataClassMoniker Name="/new_oibDataContext/AP_Story" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9804e728-5681-48c5-b58d-440c3086a47f" absoluteBounds="8.015, 3.96, 1.9700000000000002, 5.249226888020833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2b0c4fbe-c90a-49f4-a413-b997283fc5b2" absoluteBounds="10.75, 3.5, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/new_oibDataContext/AP_Stories_Module_Channel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="72271f77-1a6f-49f1-b821-c3a96e418a6d" absoluteBounds="10.765, 3.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e1e5e5e5-f82d-4126-b754-e22b943c0579" absoluteBounds="14.5, 4.75, 2, 5.6169254557291657">
+      <DataClassMoniker Name="/new_oibDataContext/File" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b0b5d57c-2695-44dd-b812-c1a0c703ddf5" absoluteBounds="14.515, 5.21, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
